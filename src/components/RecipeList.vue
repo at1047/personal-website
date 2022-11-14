@@ -22,8 +22,7 @@ export default defineComponent({
     },
     async created() {
         try {
-            const res = await axios.get("http://localhost:9090/recipes") ;
-
+            const res = await axios.get("https://andrew-tai.com/recipes") ;
             this.recipes = res.data;
         } catch(e) {
             console.error(e);
