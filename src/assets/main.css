@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #212121;
+  background-color: #161616;
 }
 
 
@@ -16,23 +16,44 @@ h1 {
 }
 
 .text {
-  font-family: "Roboto Mono";
+  font-family: "Poppins";
   color: #bfbfbf;
   text-decoration: none;
 }
 
+
+.header-container {
+  width: 100%;
+  display: flex;
+  position:relative;
+
+} 
+
 .nav-bar{
-  width:100%;
+  width: 30%;
+  position: relative;
+  display: flex;
+  right:0;
   justify-content: space-around;
-  display:flex;
   flex-direction: row;
-  padding: 10px
+  padding: 10px;
+  margin-left: auto;
 }
 
 .nav {
-
   font-weight: bold;
   font-size: 20px;
+  transition: color 0.5s ease-in-out;
+}
+
+.nav:hover { 
+  color: yellow;
+
+}
+
+.nav.router-link-exact-active {
+  opacity: 0.5;
+  cursor: default;
 }
 
 /* #app {

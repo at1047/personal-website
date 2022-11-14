@@ -1,16 +1,15 @@
 <template>
   <header>
+    <div class="header-container">
+      <div class="nav-bar">
+        <router-link class="text nav" to="/">~/</router-link>
+        <router-link class="text nav" to="about/">.config/</router-link>
+        <a class="text nav" href="https://www.andrew-tai.com/renju/">.renju/</a>
+        <router-link class="text nav" to="/blog">.logs/</router-link>
+        <router-link class="text nav" to="/recipes">.recipes/</router-link>
+      </div>
+    </div>
   </header>
-  <!-- <NavBar />
-  <RouterView></RouterView> -->
-  <div class="nav-bar">
-    <router-link class="text nav" to="/">Go to Home</router-link>
-    <router-link class="text nav" to="/about">Go to About</router-link>
-    <a class="text nav" href="https://www.andrew-tai.com/renju/">Go to Renju</a>
-    <a class="text nav" href="http://localhost:8080">Go to Renju Locally</a>
-    <router-link class="text nav" to="/blog">Go to Blog</router-link>
-  </div>
-
   <RouterView />
 </template>
 
