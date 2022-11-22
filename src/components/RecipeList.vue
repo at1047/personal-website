@@ -1,7 +1,7 @@
 <template>
     <div v-for="(recipe, idx) of recipes" :idx = idx>
         <div class="recipe-header" @click="() => toggleOpen(idx)" >
-            <img class="icons" :src="'public/' + recipe.icon + '.svg'" />
+            <img class="icons" :src="recipe.icon + '.svg'" />
             <h3 style="display: inline-block"  class="text" > {{ recipe['name'] }} </h3>
         </div>
         <ul class="recipe" :class=" recipe.open ? '' : 'is-closed'">
