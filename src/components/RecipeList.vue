@@ -1,33 +1,100 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="recipe of recipes">{{ recipe }}</li> 
+    <div v-for="(recipe, idx) of recipes" :idx = idx>
+        <div class="recipe-header" @click="() => toggleOpen(idx)" >
+            <img class="icons" :src="'public/' + recipe.icon + '.svg'" />
+            <h3 style="display: inline-block"  class="text" > {{ recipe['name'] }} </h3>
+        </div>
+        <ul class="recipe" :class=" recipe.open ? '' : 'is-closed'">
+            <li class="text" v-for="ingredient of recipe['ingredients']" >
+                {{ ingredient.quantity !== 0 ? `${ingredient.quantity} ${ingredient.unit} of ` : '' }}
+                {{ ingredient.name }}
+            </li>
+            <p class="text" style="fontSize: 12px">{{ recipe.notes }}</p>
         </ul>
     </div>
 </template>
 
 <script lang="ts">
+
 import { defineComponent } from 'vue';
-// import * as Vue from 'vue';
 import axios from 'axios';
-// import VueAxios from 'vue-axios';
-// Vue.use(VueAxios,axios)
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+interface Recipe {
+    name: string,
+    ingredients: Ingredient[],
+    notes: string,
+    icon: string,
+    open: boolean
+  }
+    
+interface Ingredient {
+    name: string,
+    quantity: number,
+    unit: string
+}
 
 export default defineComponent({
     name: "RecipeList",
+    components: {
+
+    },
     data() {
         return {
-            recipes: [],
+            recipes: <Recipe[]>[]
         };
+    },
+    methods: {
+        toggleOpen: function (i: number) {
+            this.recipes = this.recipes.map((recipe, idx) => {
+                if (idx === i) {
+                    recipe.open = !recipe.open;
+                }
+                return recipe;
+            });
+        }
     },
     async created() {
         try {
-            const res = await axios.get("https://andrew-tai.com/api/recipes") ;
-            this.recipes = res.data;
+            this.recipes = await axios.get("https://andrew-tai.com/api/recipes")
+                .then((res) => res.data)
+                .then((data) => data.map((obj: Ingredient) => ({...obj, open: false})))
+            // this.recipes = [{
+            //     name: 'Pizza',
+            //     ingredients: [{
+            //         name: 'flour',
+            //         quantity: 0,
+            //         unit: ''
+            //     }],
+            //     notes: '',
+            //     icon: 'pizza',
+            //     open: false
+            // },{
+            //     name: 'Pancakes',
+            //     ingredients: [{
+            //         name: 'pickle juice',
+            //         quantity: 2,
+            //         unit: 'splashes'
+            //     }],
+            //     notes: 'I’ve used this recipe for fried Oreos more times than actual pancakes. The problem with egged pancake recipes is that they make far too big of a portion, and you can’t reasonably split an egg into a half when halving a recipe. Hence, I looked for an eggless pancake recipe and this is the one I discovered.',
+            //     icon: 'pancake',
+            //     open: false
+            // },{
+            //     name: 'Pork belly',
+            //     ingredients: [],
+            //     notes: '',
+            //     icon: 'meat',
+            //     open: false
+            // },{
+            //     name: 'Carbonara',
+            //     ingredients: [],
+            //     notes: '',
+            //     icon: 'pasta',
+            //     open: false
+            // }]
         } catch(e) {
             console.error(e);
         }
-    }
-
+    },
 }) 
 </script>

@@ -3,33 +3,75 @@
   padding: 0;
 }
 
-body {
-  background-color: #161616;
+#pancake {
+  color: white;
 }
 
+body {
+  background-color: #1A1A1A;
+}
 
+.icons {
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+p.text {
+  /* color: #c9c9c9; */
+  margin-bottom: 30px;
+  font-size: 16px;
+}
 
 h1 {
   font-weight: bold;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
+  margin-bottom: 30px;
+  background: -webkit-linear-gradient(30deg, #b95fe7, #6096ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  padding-left: 10px;
+}
+
+li {
+  font-size: 12px;
+  margin: 5px 0;
 }
 
 .text {
   font-family: "Poppins";
-  color: #bfbfbf;
+  color: #E1E1E1;
   text-decoration: none;
+
 }
 
+.emph {
+  color: #9a7ad5;
+}
 
 .header-container {
   width: 100%;
   display: flex;
   position:relative;
-
+  border-bottom: 1px solid #363636;
+  margin-bottom: 10px;
 } 
 
-.nav-bar{
+.web-nav-bar{
   width: 30%;
   position: relative;
   display: flex;
@@ -38,22 +80,49 @@ h1 {
   flex-direction: row;
   padding: 10px;
   margin-left: auto;
+
 }
+
 
 .nav {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
   transition: color 0.5s ease-in-out;
 }
 
 .nav:hover { 
-  color: yellow;
+  color: #668596;
 
 }
 
 .nav.router-link-exact-active {
   opacity: 0.5;
   cursor: default;
+}
+
+.body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.recipe {
+  overflow: hidden;
+}
+
+.recipe-header {
+  background-color: #2F2F2F;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  transition: background-color 100ms ease-out;
+}
+
+.recipe-header:hover {
+  background-color: #3f3f3F;
+}
+
+.is-closed {
+  max-height: 0;
 }
 
 /* #app {
@@ -89,3 +158,28 @@ a,
     padding: 0 2rem;
   }
 } */
+
+@media (max-width: 500px) {
+
+  h1 {
+    margin: 60px 0 30px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p.text {
+    font-size: 14px;
+  }
+
+  .body {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+  }
+
+  .web-nav-bar{
+    display: none;
+  
+  }
+}

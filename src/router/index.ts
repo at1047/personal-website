@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
 import AboutPage from '@/components/AboutPage.vue'
 import BlogPage from '@/components/BlogPage.vue'
-import RecipeList from '@/components/RecipeList.vue'
+import RecipePage from '@/components/RecipePage.vue'
 
 
 const router = createRouter({
@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: '/recipes',
       name: 'Recipes',
-      component: RecipeList,
+      component: RecipePage,
     },
     // {
     //   path: '/about',
