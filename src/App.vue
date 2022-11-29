@@ -2,19 +2,31 @@
   <header>
   </header>
   <body>
-    <div class="header-container">
-      <div class="web-nav-bar">
-        <router-link class="text nav" to="/">~/</router-link>
-        <router-link class="text nav" to="about/">.config/</router-link>
-        <a class="text nav" href="https://www.andrew-tai.com/renju/">.renju/</a>
-        <router-link class="text nav" to="/blog">.logs/</router-link>
-        <router-link class="text nav" to="/recipes">.recipes/</router-link>
+    <transition name="slide">
+      <SlideMenu v-show="showSlideMenu" v-on:close-slide="closeSlideMenu()"></SlideMenu>
+    </transition>
+    <nav>
+      <div class="nav-bar nav-bar-left">
+        <span class="nav-icons" v-on:click="openSlideMenu()"><font-awesome-icon icon="fa-bars" /></span>
       </div>
-      
-    </div>
-    <div class="body">
+      <div class="nav-bar nav-bar-center">
+        <router-link class="nav-icons" to="/"><font-awesome-icon icon="fa-house" /></router-link>
+        <router-link class="nav-icons" to="/projects"><font-awesome-icon icon="fa-user" /></router-link>
+        <router-link class="nav-icons" to="/blog"><font-awesome-icon icon="fa-blog" /></router-link>
+      </div>
+      <div class="nav-bar nav-bar-socials">
+        <a class="nav-icons" href="https://github.com/at1047" target="_blank"><font-awesome-icon icon="fa-brands fa-github" /></a>
+        <a class="nav-icons" href="https://www.youtube.com/channel/UCSjOvYqYrVd5-d78yg-Cvlw" target="_blank"><font-awesome-icon icon="fa-brands fa-youtube" /></a>
+      </div>
+      <div class="nav-bar nav-bar-contacts">
+        <a class="nav-icons" target="_blank"><font-awesome-icon icon="fa-envelope" /></a>
+      </div>
+    </nav>
+    <div id="nav-underline"></div>
+    
+    <main>
       <RouterView />
-    </div>
+    </main>
   </body>
 </template>
 
@@ -22,13 +34,120 @@
 
 import { defineComponent } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+import SlideMenu from './components/SlideMenu.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     RouterView,
     RouterLink,
+    SlideMenu,
   },
+  data() {
+    return {
+      showSlideMenu: false,
+    }
+  },
+  methods: {
+      openSlideMenu(){
+        this.$emit('open-slide');
+        this.showSlideMenu = true;
+      },
+      closeSlideMenu(){
+      this.showSlideMenu = false;
+      }
+    },
 })
 
 </script>
+
+<style scoped>
+  nav {
+    display: inline-grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    position:relative;
+  }
+
+
+  a {
+    display: grid;
+    align-items: center;
+  }
+
+  button {
+    background: -webkit-linear-gradient(0deg, #ad5ddf, #e05cd5);
+    padding: 0 5px;
+    border-radius: 5px;
+    border: 0;
+  }
+
+  #nav-underline {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: -webkit-linear-gradient(0deg, var(--color-light-blue), var(--color-light-purple));
+  }
+
+  .nav-icons {
+    font-size: 24px;
+  }
+
+  .nav-icons:hover {
+    cursor: pointer;
+    color: #9b9b9b;
+  }
+
+  .nav-text {
+    font-size: 16px;
+  }
+  .nav-icons,
+  .nav-text {
+    transition: color 0.5s ease-in-out;
+    color: #E1E1E1;
+  }
+
+
+
+  .nav.router-link-exact-active {
+    /* opacity: 0.5; */
+    color: #7d7d7d;
+    cursor: default;
+  }
+
+  .nav-bar-left {
+    flex-basis: calc(100% / 3);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+  .nav-bar-center {
+    flex-basis: calc(100% / 3);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-bar-contacts,
+  .nav-bar-socials {
+    flex-grow: 1;
+  }
+  .nav-bar-socials {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .nav-bar-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+
+
+</style>

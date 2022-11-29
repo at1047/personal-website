@@ -1,38 +1,50 @@
+:root {
+  /* --color-white: #fff;
+  --color-gray: #c4c4c4;
+  --color-black: #000;
+  --color-purple: #8000ff; */
+  --color-light-purple: #cf59e6;
+  --color-light-blue: #6bc5f8;
+}
+
 * {
   margin: 0;
   padding: 0;
-}
-
-#pancake {
-  color: white;
 }
 
 body {
   background-color: #1A1A1A;
 }
 
-.icons {
-  vertical-align: middle;
-  width: 18px;
-  height: 18px;
-  margin-right: 5px;
+main {
+  width: 1000px;
+  margin: 0 auto;
 }
 
-p.text {
-  /* color: #c9c9c9; */
-  margin-bottom: 30px;
-  font-size: 16px;
+h1, h2, h3, a, p, span, li {
+  font-family: "Poppins";
+  color: #E1E1E1;
+  text-decoration: none;
 }
 
 h1 {
   font-weight: bold;
   text-align: center;
-  font-size: 40px;
-  margin-bottom: 30px;
-  background: -webkit-linear-gradient(30deg, #b95fe7, #6096ee);
+  font-size: 60px;
+  margin-bottom: 50px;
+  /* background: -webkit-linear-gradient(30deg, #b95fe7, #6096ee);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+
+	/* background: -webkit-linear-gradient(0deg, var(--color-light-blue), var(--color-light-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+h2 {
+  margin-bottom: 20px;
 }
 
 h3 {
@@ -52,78 +64,14 @@ li {
   margin: 5px 0;
 }
 
-.text {
-  font-family: "Poppins";
-  color: #E1E1E1;
-  text-decoration: none;
-
+a {
+  color: #9a7ad5;
 }
 
 .emph {
   color: #9a7ad5;
 }
 
-.header-container {
-  width: 100%;
-  display: flex;
-  position:relative;
-  border-bottom: 1px solid #363636;
-  margin-bottom: 10px;
-} 
-
-.web-nav-bar{
-  width: 30%;
-  position: relative;
-  display: flex;
-  right:0;
-  justify-content: space-around;
-  flex-direction: row;
-  padding: 10px;
-  margin-left: auto;
-
-}
-
-
-.nav {
-  font-weight: bold;
-  font-size: 14px;
-  transition: color 0.5s ease-in-out;
-}
-
-.nav:hover { 
-  color: #668596;
-
-}
-
-.nav.router-link-exact-active {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.body {
-  width: 1000px;
-  margin: 0 auto;
-}
-
-.recipe {
-  overflow: hidden;
-}
-
-.recipe-header {
-  background-color: #2F2F2F;
-  border-radius: 8px;
-  margin-top: 10px;
-  padding: 5px 10px;
-  transition: background-color 100ms ease-out;
-}
-
-.recipe-header:hover {
-  background-color: #3f3f3F;
-}
-
-.is-closed {
-  max-height: 0;
-}
 
 /* #app {
   max-width: 1280px;
@@ -173,7 +121,7 @@ a,
     font-size: 14px;
   }
 
-  .body {
+  main {
     width: calc(100% - 30px);
     margin: 0 auto;
   }

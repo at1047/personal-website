@@ -1,12 +1,14 @@
 <template>
+    <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
     <div v-for="(recipe, idx) of recipes" :idx = idx>
         <div class="recipe-header" @click="() => toggleOpen(idx)" >
             <img class="icons" :src="recipe.icon + '.svg'" />
             <h3 style="display: inline-block"  class="text" > {{ recipe['name'] }} </h3>
         </div>
-        <ul class="recipe" :class=" recipe.open ? '' : 'is-closed'">
+        <ul class="recipe" v-if="recipe.open">
             <li class="text" v-for="ingredient of recipe['ingredients']" >
-                {{ ingredient.quantity !== 0 ? `${ingredient.quantity} ${ingredient.unit} of ` : '' }}
+                {{ ingredient.quantity !== 0 ? `${ingredient.quantity}` :  ''}}
+                {{ ingredient.unit !== '' ? `${ingredient.unit} of ` : ''}}
                 {{ ingredient.name }}
             </li>
             <p class="text" style="fontSize: 12px">{{ recipe.notes }}</p>
@@ -41,7 +43,8 @@ export default defineComponent({
     },
     data() {
         return {
-            recipes: <Recipe[]>[]
+            recipes: <Recipe[]>[],
+            loading: true
         };
     },
     methods: {
@@ -59,6 +62,7 @@ export default defineComponent({
             this.recipes = await axios.get("https://andrew-tai.com/api/recipes")
                 .then((res) => res.data)
                 .then((data) => data.map((obj: Ingredient) => ({...obj, open: false})))
+            
             // this.recipes = [{
             //     name: 'Pizza',
             //     ingredients: [{
@@ -94,7 +98,42 @@ export default defineComponent({
             // }]
         } catch(e) {
             console.error(e);
-        }
+        };
+        this.loading = false
     },
 }) 
 </script>
+
+<style scoped>
+    .recipe {
+    overflow: hidden;
+    }
+
+    .recipe-header {
+    background-color: #2F2F2F;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    transition: background-color 100ms ease-out;
+    }
+
+    .recipe-header:hover {
+    background-color: #3f3f3F;
+    }
+
+
+    .icons {
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    }
+
+    p.text {
+    /* color: #c9c9c9; */
+    margin-bottom: 30px;
+    font-size: 16px;
+    }
+
+
+</style>
