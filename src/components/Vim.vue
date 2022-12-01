@@ -1,0 +1,86 @@
+<template>
+    <pre id="app"></pre>
+</template>
+
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+// @ts-ignore
+import { main } from '@/assets/vim.js';
+
+
+export default defineComponent({
+    name: 'Vim',
+    components: {},
+    mounted
+});
+
+function mounted() {
+    main()
+}
+
+
+</script>
+
+<style>
+/* wrapper {
+    display: flex;
+    justify-content: center;
+} */
+:root {
+  margin: 0;
+  padding: 0;
+  --color-text-background: #252525;
+  --color-page-background: #121212;
+  --color-text-cursor: #545454;
+  --color-text: #fff;
+}
+
+/* body {
+  background-color: var(--color-page-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+@keyframes cursorBlink {
+  0% {
+    background: var(--color-text-cursor);
+  }
+  45% {
+    background: var(--color-text-cursor);
+  }
+  65% {
+    background: var(--color-text-background);
+  }
+  /* 66% {
+    background: var(--color-text-background);
+  } */
+  100% {
+    background: var(--color-text-background);
+  }
+}
+
+mark {
+  background-color: #545454;
+  color: var(--color-text);
+
+}
+
+.blinking {
+  animation: cursorBlink 1s infinite
+}
+
+#app {
+  height: 700px;
+  /* width: 800px; */
+  color: var(--color-text);
+  font-family: 'Roboto Mono';
+  font-size: 16px;
+  background-color: var(--color-text-background);
+  border: 0;
+  padding-bottom: auto;
+}
+
+</style>

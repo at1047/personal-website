@@ -10,9 +10,9 @@
         <span class="nav-icons" v-on:click="openSlideMenu()"><font-awesome-icon icon="fa-bars" /></span>
       </div>
       <div class="nav-bar nav-bar-center">
-        <router-link class="nav-icons" to="/"><font-awesome-icon icon="fa-house" /></router-link>
-        <router-link class="nav-icons" to="/projects"><font-awesome-icon icon="fa-user" /></router-link>
-        <router-link class="nav-icons" to="/blog"><font-awesome-icon icon="fa-blog" /></router-link>
+        <router-link class="nav-text" to="/">Home</router-link>
+        <router-link class="nav-text" to="/projects">About</router-link>
+        <router-link class="nav-text" to="/blog">Blog</router-link>
       </div>
       <div class="nav-bar nav-bar-socials">
         <a class="nav-icons" href="https://github.com/at1047" target="_blank"><font-awesome-icon icon="fa-brands fa-github" /></a>
@@ -103,6 +103,7 @@ export default defineComponent({
 
   .nav-text {
     font-size: 16px;
+    font-weight: 200;
   }
   .nav-icons,
   .nav-text {
