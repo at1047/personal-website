@@ -7,7 +7,7 @@
 import { defineComponent } from 'vue';
 
 // @ts-ignore
-import { main } from '@/assets/cube.js'
+import { main } from '/public/cube.js'
 
 
 export default defineComponent({

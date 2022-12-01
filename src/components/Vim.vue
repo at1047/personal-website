@@ -7,7 +7,7 @@
 import { defineComponent } from 'vue';
 
 // @ts-ignore
-import { main } from '@/assets/vim.js';
+import { main } from 'public/vim.js';
 
 
 export default defineComponent({
