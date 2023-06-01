@@ -1,5 +1,5 @@
 <template>
-        <pre id="canvas" style='height:700px;width:700px;margin-top: 50px;'></pre>
+        <pre id="canvas" ref="canvas" style='height:700px;width:700px;margin-top: 50px;'></pre>
 </template>
 
 <script lang="ts">
@@ -7,8 +7,7 @@
 import { defineComponent } from 'vue';
 
 // @ts-ignore
-import { main } from '/public/cube.js'
-
+import { main } from '/public/cube.js';
 
 export default defineComponent({
     name: 'Cube',
@@ -18,6 +17,8 @@ export default defineComponent({
 
 function mounted() {
     console.log('mounted')
+    console.log(this.$refs.canvas.clientHeight)
+    console.log('mounted2')
     main()
 }
 

@@ -9,7 +9,7 @@
 <script lang="ts">
 
 import { defineComponent } from 'vue';
-import RecipeList from './RecipeList.vue'
+import RecipeList from '../components/RecipeList.vue'
 
 export default defineComponent({
     name: 'HomePage',
