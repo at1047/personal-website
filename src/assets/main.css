@@ -21,7 +21,7 @@ main {
   margin: 0 auto;
 }
 
-h1, h2, h3, a, p, span, li {
+h1, h2, h3, a, p, span, li, code {
   font-family: "Poppins";
   color: #E1E1E1;
   text-decoration: none;
@@ -70,6 +70,16 @@ a {
 
 .emph {
   color: #9a7ad5;
+}
+
+code {
+  font-size: 12px;
+  background: #2A2A2A;
+}
+
+pre {
+  padding: 5px 10px;
+  background: #2A2A2A;
 }
 
 
@@ -128,6 +138,6 @@ a,
 
   .web-nav-bar{
     display: none;
-  
+
   }
 }

@@ -3,7 +3,7 @@ import HomePage from '@/views/HomePage.vue'
 import ProjectPage from '@/views/ProjectPage.vue'
 import ProjectIndexPage from '@/views/ProjectIndexPage.vue'
 import ProjectDetailsPage from '@/views/ProjectDetailsPage.vue'
-import BlogPage from '@/views/BlogPage.vue'
+// import BlogPage from '@/views/BlogPage.vue'
 import RecipePage from '@/views/RecipePage.vue'
 
 
@@ -20,11 +20,11 @@ const router = createRouter({
       name: 'Projects',
       component: ProjectPage,
     },
-    {
-      path: '/blog',
-      name: 'Blog',
-      component: BlogPage,
-    },
+//    {
+//      path: '/blog',
+//      name: 'Blog',
+//      component: BlogPage,
+//    },
     {
       path: '/recipes',
       name: 'Recipes',

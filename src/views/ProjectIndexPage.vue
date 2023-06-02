@@ -1,9 +1,8 @@
 <template>
-    <h1 class="text">Projects</h1>
     <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
     <div v-for="(blogtitle, idx) of blogtitles" :idx = idx>
-      <router-link :to="`/projects/${this.$route.params.projectName}/${blogtitle}`">
-        <h3>{{ blogtitle }}</h3>
+      <router-link :to="`/projects/${this.$route.params.projectName}/${blogtitle.titleCode}`">
+        <h3>{{ blogtitle.title }}</h3>
       </router-link>
     </div>
 </template>

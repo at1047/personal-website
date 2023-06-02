@@ -1,7 +1,5 @@
 <template>
-  <h1 class="text">Projects</h1>
-  <div v-html="markdownToHtml"></div>
-
+  <div class="blog" v-html="markdownToHtml"></div>
 </template>
 
 <script lang="ts">
@@ -20,10 +18,6 @@ export default defineComponent({
    };
   },
     async created() {
-        console.log(this.$route.params.projectName)
-        console.log(this.$route.params.blogName)
-        console.log("//" + import.meta.env.VITE_API
-              + "/blogs/" + this.$route.params.blogName)
         try {
             this.markdown = await axios.get("//" + import.meta.env.VITE_API
               + "/blogs/" + this.$route.params.blogName)
@@ -34,7 +28,6 @@ export default defineComponent({
             console.error(e);
         };
         this.loading = false
-        console.log(this.markdown)
     },
    computed: {
      markdownToHtml(){
@@ -44,3 +37,9 @@ export default defineComponent({
 });
 </script>
 
+<style scoped>
+.blog {
+  width: 800px;
+  margin: 50px auto;
+}
+</style>

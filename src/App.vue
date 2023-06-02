@@ -12,7 +12,7 @@
       <div class="nav-bar nav-bar-center">
         <router-link class="nav-text" to="/">Home</router-link>
         <router-link class="nav-text" to="/projects">Projects</router-link>
-        <router-link class="nav-text" to="/blog">Blog</router-link>
+        <!--        <router-link class="nav-text" to="/blog">Blog</router-link> -->
       </div>
       <div class="nav-bar nav-bar-right">
         <a class="nav-icons" href="https://github.com/at1047" target="_blank"><font-awesome-icon icon="fa-brands fa-github" /></a>
@@ -123,25 +123,25 @@ button {
 }
 
 .nav-bar-left {
-  flex-basis: calc(100% / 3);
+  flex-basis: 20%;
   display: flex;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 40px;
   border-left: none;
 }
 .nav-bar-center {
-  flex-basis: calc(100% / 3);
+  flex-basis: 55%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 10px 70px;
 }
 .nav-bar-right {
-  flex-basis: calc(100% / 3);
+  flex-basis: 25%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 90px;
+  padding: 10px 40px;
 
 }
 /*
