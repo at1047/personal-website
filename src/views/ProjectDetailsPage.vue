@@ -16,15 +16,18 @@ export default defineComponent({
     },
   data(){
     return {
-     markdown:  null,
+     markdown:  "",
    };
   },
     async created() {
         console.log(this.$route.params.projectName)
         console.log(this.$route.params.blogName)
+        console.log("//" + import.meta.env.VITE_API
+              + "/blogs/" + this.$route.params.blogName)
         try {
             this.markdown = await axios.get("//" + import.meta.env.VITE_API
-              + "/blogs/test%20title%201")
+              + "/blogs/" + this.$route.params.blogName)
+              //+ "/blogs/" + "test%20title%201")
                 .then((res) => res.data)
                 .then((data) => data.content)
         } catch(e) {

@@ -2,7 +2,9 @@
     <h1 class="text">Projects</h1>
     <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
     <div v-for="(blogtitle, idx) of blogtitles" :idx = idx>
-          <h3 style="display: inline-block"  class="text" > {{ blogtitle }} </h3>
+      <router-link :to="`/projects/${this.$route.params.projectName}/${blogtitle}`">
+        <h3>{{ blogtitle }}</h3>
+      </router-link>
     </div>
 </template>
 
