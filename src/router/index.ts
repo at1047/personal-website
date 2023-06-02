@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
-import ProjectPage from '@/views/ProjectIndex.vue'
+import ProjectPage from '@/views/ProjectPage.vue'
+import ProjectIndexPage from '@/views/ProjectIndexPage.vue'
+import ProjectDetailsPage from '@/views/ProjectDetailsPage.vue'
 import BlogPage from '@/views/BlogPage.vue'
 import RecipePage from '@/views/RecipePage.vue'
 
@@ -28,6 +30,16 @@ const router = createRouter({
       name: 'Recipes',
       component: RecipePage,
     },
+    {
+      path: '/projects/:projectName',
+      name: 'ProjectIndex',
+      component: ProjectIndexPage,
+    },
+    {
+      path: '/projects/:projectName/:blogName',
+      name: 'ProjectDetails',
+      component: ProjectDetailsPage,
+    }
     // {
     //   path: '/about',
     //   name: 'about',

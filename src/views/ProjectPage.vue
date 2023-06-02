@@ -1,69 +1,39 @@
 <template>
-    <h1 class="text">Projects</h1>
-
-    <p>content</p>
-
-
-
+  <h1 class="text">Projects</h1>
+  <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
+  <div v-for="(project, idx) of projects" :idx = idx>
+    <router-link :to="`/projects/${project}`"><h3 class="text">{{ project }}</h3></router-link>
+  </div>
 </template>
 
 <script lang="ts">
 
-import { defineComponent } from 'vue';
+  import { defineComponent } from 'vue';
+import axios from 'axios';
+import { RouterLink, RouterView } from 'vue-router'
+
+console.log(import.meta.env)
 
 export default defineComponent({
-    name: 'ProjectPage',
+    name: 'Projects',
     components: {
+        RouterView,
+        RouterLink,
+    },
+    data() {
+        return {
+            projects: null,
+            loading: true
+        };
+    },
+    async created() {
+        try {
+            this.projects = await axios.get("http://localhost:9090/projects")
+                .then((res) => res.data)
+        } catch(e) {
+            console.error(e);
+        };
+        this.loading = false
     },
 });
 </script>
-
-<style scoped>
-    button {
-        height: 30px;
-        width: 30px;
-        background-color: transparent;
-        border: transparent;
-        color: #BBBBBB;
-        position:absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 30px;
-    }
-
-    button:hover {
-        color: white
-    }
-
-    .modal {
-        position: relative;
-        background-color: #1A1A1A;
-        width: 600px;
-        padding: 30px 100px;
-        border-radius: 8px;
-        z-index: 999;
-    }
-
-    .modal-background {
-        background-color: rgba(255,255,255,0.1);
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-enter-active,
-    .modal-leave-active {
-        transition: all 0.25s ease;
-    }
-
-    .modal-enter-from,
-    .modal-leave-to {
-        opacity: 0;
-        transition: scale(1.1);
-    }
-</style>
