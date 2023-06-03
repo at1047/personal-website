@@ -28,7 +28,7 @@
   </body>
 </template>
 
-<script lang="ts">
+<script>
 
 import { defineComponent } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
