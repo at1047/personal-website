@@ -35,14 +35,18 @@ const router = createRouter({
             name: 'ProjectIndex',
             component: ProjectIndexPage,
             meta: {
-                breadcrumb: "/",
-                breadcrumb2: "/projects",
+                home: "/",
+                projects: "/projects",
             }
         },
         {
             path: '/projects/:projectName/:blogName',
             name: 'ProjectDetails',
             component: ProjectDetailsPage,
+            meta: {
+                home: "/",
+                projects: "/projects",
+            }
         }
         // {
         //   path: '/about',

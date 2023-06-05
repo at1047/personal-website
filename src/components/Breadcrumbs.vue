@@ -1,9 +1,14 @@
 <template>
     <ul>
-        <li v-for="(bc, idx) of this.breadcrumbArr" v-if="this.breadcrumbArr" :idx = idx>
-            <router-link :to="`${bc}`">
-                <span>{{ (bc == '/') ? '~' : bc }}</span>
-            </router-link>
+        <li v-for="(value, key, idx) of this.breadcrumbArr" v-if="this.breadcrumbArr" :idx = idx>
+            <span v-if="idx != Object.keys(this.breadcrumbArr).length - 1">
+              <router-link :to="`${value}`">
+                <span>{{ (key == 'home') ? '~' : '/' + key }}</span>
+              </router-link>
+            </span>
+            <span v-if="idx == Object.keys(this.breadcrumbArr).length - 1">
+                  {{ (key == 'home') ? '~' : '/' + key }}
+            </span>
         </li>
     </ul>
 </template>
@@ -22,6 +27,8 @@ export default defineComponent({
         RouterLink,
     },
     created() {
+      // console.log('test')
+      console.log(Object.keys(this.breadcrumbArr).length - 1)
     }
 
 

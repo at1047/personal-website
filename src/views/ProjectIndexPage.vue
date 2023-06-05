@@ -1,5 +1,6 @@
 <template>
-    <Breadcrumbs :breadcrumbArr="this.$route.meta" v-if="this.$route.meta"/>
+    <Breadcrumbs :breadcrumbArr="this.breadcrumbArr" v-if="this.loading == false"/>
+
     <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
 
     <div class="main">
@@ -28,6 +29,7 @@ export default defineComponent({
     data() {
         return {
             blogtitles: null,
+          breadcrumbArr: null,
             loading: true,
         }
     },
@@ -39,6 +41,8 @@ export default defineComponent({
         } catch(e) {
             console.error(e);
         };
+        this.breadcrumbArr = { ...this.$route.meta }
+        this.breadcrumbArr[this.$route.params.projectName] = '/projects/' + this.$route.params.projectName
         this.loading = false
     },
 });
