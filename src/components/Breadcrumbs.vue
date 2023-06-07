@@ -3,11 +3,12 @@
         <li v-for="(value, key, idx) of this.breadcrumbArr" v-if="this.breadcrumbArr" :idx = idx>
             <span v-if="idx != Object.keys(this.breadcrumbArr).length - 1">
               <router-link :to="`${value}`">
-                <span>{{ (key == 'home') ? '~' : '/' + key }}</span>
+                <span>{{ (key == 'home') ? '' : ' / '}}</span>
+                <span class="address">{{ (key == 'home') ? '~' : key }}</span>
               </router-link>
             </span>
-            <span v-if="idx == Object.keys(this.breadcrumbArr).length - 1">
-                  {{ (key == 'home') ? '~' : '/' + key }}
+            <span class="destination" v-if="idx == Object.keys(this.breadcrumbArr).length - 1">
+                  {{ (key == 'home') ? '~' : ' / ' + key }}
             </span>
         </li>
     </ul>
@@ -44,6 +45,10 @@ ul {
 
 li {
     display:inline;
+}
+
+.destination {
+  color: var(--color-text-light);
 }
 
 </style>

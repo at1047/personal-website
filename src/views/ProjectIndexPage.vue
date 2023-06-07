@@ -1,15 +1,14 @@
 <template>
     <Breadcrumbs :breadcrumbArr="this.breadcrumbArr" v-if="this.loading == false"/>
-
-    <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
-
     <div class="main">
+        <h2>Blogs</h2>
         <div v-for="(blogtitle, idx) of blogtitles" :idx = idx>
             <router-link :to="`/projects/${this.$route.params.projectName}/${blogtitle.titleCode}`">
                 <h3>{{ blogtitle.title }}</h3>
             </router-link>
         </div>
     </div>
+    <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
 </template>
 
 <script>

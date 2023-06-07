@@ -1,8 +1,10 @@
 <template>
-    <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
+
+    <h2>Projects</h2>
     <div v-for="(project, idx) of projects" :idx = idx>
         <router-link :to="`/projects/${project.projectCode}`"><h3 class="text">{{ project.project }}</h3></router-link>
     </div>
+    <p style="margin-top: 30px; text-align: center;" v-if="loading" class="text">Loading...</p>
 </template>
 
 <script>
