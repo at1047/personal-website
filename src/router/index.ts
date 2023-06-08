@@ -4,6 +4,7 @@ import ProjectPage from '@/views/ProjectPage.vue'
 import ProjectIndexPage from '@/views/ProjectIndexPage.vue'
 import ProjectDetailsPage from '@/views/ProjectDetailsPage.vue'
 import EditorPage from '@/views/EditorPage.vue'
+import EditorMarkdownPage from '@/views/EditorMarkdownPage.vue'
 import RecipePage from '@/views/RecipePage.vue'
 
 
@@ -47,7 +48,25 @@ const router = createRouter({
                 home: "/",
                 projects: "/projects",
             }
-        }
+        },
+        {
+            path: '/editor/markdown',
+            name: 'EditorMarkdownPage',
+            component: EditorMarkdownPage,
+            //meta: {
+            //    home: "/",
+            //    projects: "/projects",
+            //}
+        },
+        //{
+        //    path: '/editor/blogs/:blogName',
+        //    name: 'EditorBlogs',
+        //    component: ProjectIndexPage,
+        //    meta: {
+        //        home: "/",
+        //        projects: "/projects",
+        //    }
+        //},
         // {
         //   path: '/about',
         //   name: 'about',

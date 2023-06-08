@@ -2,8 +2,8 @@
 
         <div id="mySidenav" class="sidenav">
             <p @click="close()" class="closebtn" >&times;</p>
-            <router-link class="nav-text" to="/recipes">Recipes</router-link>
-            <a class="nav-text" href="https://www.andrew-tai.com/renju/">Renju</a>
+            <router-link @click="close()" class="nav-text" to="/recipes">Recipes</router-link>
+            <a @click="close()" class="nav-text" href="https://www.andrew-tai.com/renju/">Renju</a>
         </div>
 
 </template>

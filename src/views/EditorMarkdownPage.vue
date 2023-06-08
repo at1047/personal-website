@@ -16,7 +16,7 @@ import { marked } from "marked";
 import axios from "axios";
 
 export default defineComponent({
-    name: 'EditorMarkdown',
+    name: 'EditorMarkdownPage',
     props: {
     },
     components: {
@@ -56,15 +56,28 @@ export default defineComponent({
 
 <style scoped>
 textarea {
+  font-family: Menlo, Monaco;
   width: 100%;
   height: 60vh;
-  font-size: 12px;
+  font-size: 13px;
   background: var(--color-background-light);
+  color: #A1A1A1;
   border:none;
   padding: 5px 10px
 }
 
-      .tab-container {
-        padding-bottom: 5px;
-      }
+textarea:focus {
+outline-offset: 0px !important;
+outline: none !important;
+}
+
+.tab-container {
+  padding-bottom: 10px;
+}
+
+
+button {
+  padding: 1px 2px;
+}
+
 </style>

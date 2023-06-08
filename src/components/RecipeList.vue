@@ -29,7 +29,7 @@ interface Recipe {
     icon: string,
     open: boolean
   }
-    
+
 interface Ingredient {
     name: string,
     quantity: number,
@@ -62,7 +62,7 @@ export default defineComponent({
             this.recipes = await axios.get("https://andrew-tai.com/api/recipes")
                 .then((res) => res.data)
                 .then((data) => data.map((obj: Ingredient) => ({...obj, open: false})))
-            
+
             // this.recipes = [{
             //     name: 'Pizza',
             //     ingredients: [{
@@ -101,7 +101,7 @@ export default defineComponent({
         };
         this.loading = false
     },
-}) 
+})
 </script>
 
 <style scoped>
@@ -113,7 +113,7 @@ export default defineComponent({
     background-color: #2F2F2F;
     border-radius: 8px;
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 2px 10px;
     transition: background-color 100ms ease-out;
     }
 

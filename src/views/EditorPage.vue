@@ -1,17 +1,21 @@
 <template>
-  <EditorMarkdown />
+  <p>helo</p>
+  <EditorList path="blogs" />
+  <!--<EditorMarkdown />-->
 </template>
 
 <script lang="ts">
 
 import { defineComponent } from 'vue';
-import EditorMarkdown from '../components/EditorMarkdown.vue'
+import EditorProjectPage from '../views/EditorProjectPage.vue'
+import EditorList from '../components/EditorList.vue'
 // import Vim from './Vim.vue';
 
 export default defineComponent({
     name: 'EditorPage',
     components: {
-      EditorMarkdown,
+      EditorProjectPage,
+      EditorList,
         // Vim,
     },
 });

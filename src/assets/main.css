@@ -7,6 +7,8 @@
     --color-background-light: #232323;
     --color-text: #E1E1E1;
     --color-text-light: #A1A1A1;
+    --color-menu-item: #313131;
+    --color-menu-item-hover: #3f3f3F;
 }
 
 * {
