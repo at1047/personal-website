@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
 import ProjectPage from '@/views/ProjectPage.vue'
-import ProjectIndexPage from '@/views/ProjectIndexPage.vue'
+// import ProjectIndexPage from '@/views/ProjectIndexPage.vue'
 import ProjectDetailsPage from '@/views/ProjectDetailsPage.vue'
 import EditorPage from '@/views/EditorPage.vue'
 import EditorMarkdownPage from '@/views/EditorMarkdownPage.vue'
 import RecipePage from '@/views/RecipePage.vue'
 
+import ProjectClarentPage from '@/views/projects/clarent.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,18 +32,36 @@ const router = createRouter({
             name: 'Recipes',
             component: RecipePage,
         },
+        // {
+        //     path: '/projects/:projectName',
+        //     name: 'ProjectIndex',
+        //     component: ProjectIndexPage,
+        //     meta: {
+        //         home: "/",
+        //         projects: "/projects",
+        //     }
+        // },
         {
-            path: '/projects/:projectName',
+            path: '/projects/clarent',
             name: 'ProjectIndex',
-            component: ProjectIndexPage,
+            component: ProjectClarentPage,
             meta: {
                 home: "/",
                 projects: "/projects",
             }
         },
+        // {
+        //     path: '/projects/:projectName/:blogName',
+        //     name: 'ProjectDetails',
+        //     component: ProjectDetailsPage,
+        //     meta: {
+        //         home: "/",
+        //         projects: "/projects",
+        //     }
+        // },
         {
-            path: '/projects/:projectName/:blogName',
-            name: 'ProjectDetails',
+            path: '/projects/:projectName/clarent',
+            name: 'Clarent',
             component: ProjectDetailsPage,
             meta: {
                 home: "/",

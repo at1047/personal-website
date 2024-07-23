@@ -12,7 +12,8 @@
       <div class="nav-bar nav-bar-center">
         <router-link class="nav-text" to="/">Home</router-link>
         <router-link class="nav-text" to="/projects">Projects</router-link>
-        <router-link class="nav-text" to="/editor">Editor</router-link>
+        <!--<router-link class="nav-text" to="/editor">Editor</router-link>-->
+        <router-link class="nav-text" to="/recipes">Recipes</router-link>
       </div>
       <div class="nav-bar nav-bar-right">
         <a class="nav-icons" href="https://github.com/at1047" target="_blank"><font-awesome-icon icon="fa-brands fa-github" /></a>
@@ -64,7 +65,7 @@ nav {
   display: inline-grid;
   grid-template-columns: 1fr 1.5fr 1fr;
   width: 100%;
-  height: 80px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   position:relative;
@@ -85,10 +86,10 @@ button {
 }
 
 #nav-underline {
-  display: none;
+  display: block;
   width: 100%;
-  height: 1px;
-  background: #E1E1E1;
+  height: 0.5px;
+  background: #363636;
 }
 
 .nav-icons {
@@ -97,7 +98,6 @@ button {
 
 .nav-icons:hover {
   cursor: pointer;
-  color: #9b9b9b;
 }
 
 .nav-text {

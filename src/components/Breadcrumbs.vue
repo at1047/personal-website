@@ -30,6 +30,7 @@ export default defineComponent({
     created() {
       // console.log('test')
       console.log(Object.keys(this.breadcrumbArr).length - 1)
+      console.log(this.breadcrumbArr)
     }
 
 

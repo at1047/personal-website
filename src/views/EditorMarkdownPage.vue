@@ -44,10 +44,10 @@ export default defineComponent({
       }
     },
     methods: {
-      toTextArea: function (event) {
+      toTextArea: function (event: Event) {
         this.isEdit = true;
       },
-      toMarkdown: function (event) {
+      toMarkdown: function (event: Event) {
         this.isEdit = false;
       }
     }

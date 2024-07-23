@@ -16,9 +16,9 @@ export default defineComponent({
 });
 
 function mounted() {
-    console.log('mounted')
-    console.log(this.$refs.canvas.clientHeight)
-    console.log('mounted2')
+    // console.log('mounted')
+    // console.log(this.$refs.canvas.clientHeight)
+    // console.log('mounted2')
     main()
 }
 
